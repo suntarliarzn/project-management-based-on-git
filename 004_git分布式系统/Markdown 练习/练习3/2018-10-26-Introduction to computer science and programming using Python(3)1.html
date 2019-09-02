@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Introduction to Computer Science and Programming Using Python(3)</title></head>
+<body>
+<h1>Week three: Structured Types</h1>
+<h2>1. TUPLES 元组</h2>
+<ul>
+<li><p>an ordered sequence of elements, can mix element types.</p>
+</li>
+<li><p><strong>immutable</strong>, cannot change element values</p>
+</li>
+<li><p>represented with parentheses ()</p>
+</li>
+<li><pre><code class='language-python' lang='python'>&gt;&gt;&gt; te = ()
+&gt;&gt;&gt; t = (2, &quot;one&quot;, 3)
+&gt;&gt;&gt; t
+(2, &#39;one&#39;, 3)
+&gt;&gt;&gt; t[0]
+2
+&gt;&gt;&gt; t + (5,6)
+(2, &#39;one&#39;, 3, 5, 6)
+&gt;&gt;&gt; t[1:2] #不包括后括号里面的参数
+(&#39;one&#39;,)
+&gt;&gt;&gt; t[1:3] #必须增加一位来包括前面的参数
+(&#39;one&#39;, 3)
+&gt;&gt;&gt; (&#39;one&#39;,) #，代表这是一个元组
+(&#39;one&#39;,)
+&gt;&gt;&gt; (&#39;one&#39;) #无，代表这是个字符串
+&#39;one&#39;
+</code></pre>
+</li>
+
+</ul>
+<h2>2. List 列表</h2>
+<ul>
+<li><p>ordered sequence</p>
+</li>
+<li><p>square brackets: []</p>
+</li>
+<li><h4>mutable!!!</h4>
+</li>
+
+</ul>
+<h2>3.  Operations on Lists</h2>
+<ul>
+<li><p><strong>ADD---.append/.extend</strong>（<em>object_name.do_something</em>()）</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; l = [2,1,3]
+&gt;&gt;&gt; print(l)
+[2, 1, 3]
+&gt;&gt;&gt; l.append(5) #添加单个对象至列表最后
+&gt;&gt;&gt; print(l)
+[2, 1, 3, 5]
+&gt;&gt;&gt; L1 = [2,1,3]
+&gt;&gt;&gt; L2 =[4,5,6]
+&gt;&gt;&gt; L3 = L1 + L2 #列表合并
+&gt;&gt;&gt; print(L3)
+[2, 1, 3, 4, 5, 6]
+&gt;&gt;&gt; L1.extend([0,10]) #添加列表
+&gt;&gt;&gt; print(L1)
+[2, 1, 3, 0, 10]
+</code></pre>
+</li>
+<li><h5>Remove---del(List[])/L.pop()/L.remove</h5>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; L
+[1, 3, 6, 3, 7, 0]
+&gt;&gt;&gt; L.remove(3)
+&gt;&gt;&gt; L
+[1, 6, 3, 7, 0]
+&gt;&gt;&gt; del(L[1])
+&gt;&gt;&gt; L
+[1, 3, 7, 0]
+&gt;&gt;&gt; L.pop()
+0
+&gt;&gt;&gt; L
+[1, 3, 7]
+&gt;&gt;&gt; L.pop(0)
+1
+&gt;&gt;&gt; L
+[3, 7]
+</code></pre>
+</li>
+<li><h5>Convert Lists to Strings and back---list()/&#39;&#39;.join()</h5>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; s = &#39;I &lt; 3 cs&#39;
+&gt;&gt;&gt; list(s) #字符串变列表
+[&#39;I&#39;, &#39; &#39;, &#39;&lt;&#39;, &#39; &#39;, &#39;3&#39;, &#39; &#39;, &#39;c&#39;, &#39;s&#39;]
+&gt;&gt;&gt; s.split(&#39;&lt;&#39;) #分割字符串
+[&#39;I &#39;, &#39; 3 cs&#39;]
+
+&gt;&gt;&gt; L = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]
+&gt;&gt;&gt; &#39;&#39;.join(L) #列表变字符串
+&#39;abc&#39;
+&gt;&gt;&gt; L
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+&gt;&gt;&gt; &#39;_&#39;.join(L)
+&#39;a_b_c&#39;
+</code></pre>
+</li>
+
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li><h5>Other List operations---sorted()/.sort()/.reverse()</h5>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; L = [9, 6, 0, 3]
+&gt;&gt;&gt; sorted(L)
+[0, 3, 6, 9]
+&gt;&gt;&gt; L
+[9, 6, 0, 3]
+&gt;&gt;&gt; L.sort
+&lt;built-in method sort of list object at 0x000001C63CA297C8&gt;
+&gt;&gt;&gt; L.sort()
+&gt;&gt;&gt; L
+[0, 3, 6, 9]
+&gt;&gt;&gt; L.reverse()
+&gt;&gt;&gt; L
+[9, 6, 3, 0]
+</code></pre>
+<p>MORE: <a href='https://docs.python.org/3/tutorial/datastructures.html' target='_blank' class='url'>https://docs.python.org/3/tutorial/datastructures.html</a></p>
+</li>
+
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>3. Mutation</h2>
+<ul>
+<li><p>If two lists print the same thing, does not mean they are the same structure.</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; cool
+[&#39;blue&#39;, &#39;green&#39;, &#39;grey&#39;]
+&gt;&gt;&gt; chill
+[&#39;blue&#39;, &#39;green&#39;, &#39;grey&#39;] #列表中对象一样，不一定列表相同
+&gt;&gt;&gt; chill[2] = &#39;blue&#39;
+&gt;&gt;&gt; chill
+[&#39;blue&#39;, &#39;green&#39;, &#39;blue&#39;]
+&gt;&gt;&gt; cool
+[&#39;blue&#39;, &#39;green&#39;, &#39;grey&#39;]
+</code></pre>
+</li>
+<li><p><strong>Cloning a list</strong>: create a new list and <strong>copy every element using</strong> chill = cool[:]</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; cool = [&#39;blue&#39;,&#39;green&#39;,&#39;grey&#39;]
+&gt;&gt;&gt; chill = cool[:] #克隆列表，生成新的列表，不指向原列表。
+&gt;&gt;&gt; chill.append(&#39;black&#39;)
+
+
+&gt;&gt;&gt; chill
+[&#39;blue&#39;, &#39;green&#39;, &#39;grey&#39;, &#39;black&#39;]
+&gt;&gt;&gt; cool
+[&#39;blue&#39;, &#39;green&#39;, &#39;grey&#39;]
+</code></pre>
+</li>
+<li><p>calling<code>.sort()</code><strong>mutates</strong> the list,returns nothing</p>
+</li>
+<li><p>calling <code>sorted()</code> does not mutate list, must assign result to a variable. </p>
+</li>
+<li><p><strong>Lists of Lists of Lists</strong></p>
+<ul>
+<li><p>can have nested lists</p>
+</li>
+<li><p>side effects still possible after muation</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; warm = [&#39;yellow&#39;, &#39;orange&#39;]
+&gt;&gt;&gt; hot = [&#39;red&#39;]
+&gt;&gt;&gt; brigtcolor = [warm]
+&gt;&gt;&gt; brigtcolor
+[[&#39;yellow&#39;, &#39;orange&#39;]]
+&gt;&gt;&gt; brigtcolor.append(hot) #添加另一个列表
+&gt;&gt;&gt; brigtcolor
+[[&#39;yellow&#39;, &#39;orange&#39;], [&#39;red&#39;]]
+&gt;&gt;&gt; hot.append(&#39;pink&#39;) #原列表变化
+&gt;&gt;&gt; hot
+[&#39;red&#39;, &#39;pink&#39;]
+&gt;&gt;&gt; bright.color
+&gt;&gt;&gt; brigtcolor #所有指向列表也跟着变化
+[[&#39;yellow&#39;, &#39;orange&#39;], [&#39;red&#39;, &#39;pink&#39;]]
+</code></pre>
+</li>
+
+</ul>
+</li>
+<li><p><strong>AVIOD</strong> mutating a list as you are iterating over it!!!</p>
+<pre><code class='language-python' lang='python'>def remove_dups (L1, L2):
+        for e in L1:
+                if e in L2:
+                        L1.remove(e)                       
+                        
+&gt;&gt;&gt; L1 = [1,2,3,4]
+&gt;&gt;&gt; L2 = [1,2,5,6]
+&gt;&gt;&gt; remove_dups(L1,L2)
+&gt;&gt;&gt; L1 #重复项[2]并未被剔除，因为代码中列表被改变，程序终止。
+[2, 3, 4]
+&gt;&gt;&gt; L2
+[1, 2, 5, 6]
+
+#改进方法，给列表重新赋值建立新的列表
+def remove_dups_new(L1,L2):
+    L1_copy = L1[:] #对新列表进行运算，不涉及原列表改变
+    for e in L1_copy:
+        if e in L2:
+            L1.remove(e)
+
+&gt;&gt;&gt; L1 = [1,2,3,4]
+&gt;&gt;&gt; L2 = [1,2,5,6]
+&gt;&gt;&gt; remove_dups_new(L1,L2)
+&gt;&gt;&gt; L1
+[3, 4]
+&gt;&gt;&gt; L2
+[1, 2, 5, 6] 
+
+
+
+</code></pre>
+</li>
+<li><p><strong>Map Function</strong>
+<em>Return an iterator that applies function to every item of iterable, yielding the results.</em></p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; list(map(abs, [1,-2,3,-4,3.5, 6.8]))
+[1, 2, 3, 4, 3.5, 6.8]
+
+&gt;&gt;&gt; list(map(int, [1,-2,3,-4,3.5, 6.8]))
+[1, -2, 3, -4, 3, 6]
+</code></pre>
+</li>
+
+</ul>
+<p>&nbsp;</p>
+<h2>4. Quick Review</h2>
+<ul>
+<li><p>STRINGS, TUPLES, RANGES, LISTS</p>
+<ul>
+<li>Common operations</li>
+<li>seq[i]---i th element of sequence</li>
+<li>len(seq)---length of sequence</li>
+<li>seq1 + seq2---concatenation of sequences (not range)</li>
+<li>n*seq---sequence that repeats seq n times (not range)</li>
+<li>seq[start:end] ---slice of sequence</li>
+<li>e in seq---True if e contained in sequence</li>
+<li>e not in seq---True if e contained in sequence</li>
+<li>for e in seq---iterates over elements of sequence</li>
+
+</ul>
+</li>
+<li><h5>Properties</h5>
+<p><img src='http://pdg2co4cr.bkt.clouddn.com/blog/181028/Ihm8fcaGid.jpg?imageslim' alt='mark' referrerPolicy='no-referrer' /></p>
+</li>
+
+</ul>
+<h2>5. Dictionary 字典</h2>
+<ul>
+<li><p>my_dict = {}</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; grades = {&#39;Ann&#39;:&#39;B&#39;, &#39;John&#39;:&#39;A+&#39;,&#39;Denise&#39;:&#39;A&#39;,&#39;Katy&#39;:&#39;A&#39;}
+&gt;&gt;&gt; grades
+{&#39;Ann&#39;: &#39;B&#39;, &#39;John&#39;: &#39;A+&#39;, &#39;Denise&#39;: &#39;A&#39;, &#39;Katy&#39;: &#39;A&#39;}
+&gt;&gt;&gt; grades[&#39;John&#39;]
+&#39;A+&#39;
+&gt;&gt;&gt; grades[&#39;A&#39;]
+Traceback (most recent call last):
+  File &quot;&lt;pyshell#77&gt;&quot;, line 1, in &lt;module&gt;
+    grades[&#39;A&#39;]
+KeyError: &#39;A&#39;
+</code></pre>
+</li>
+<li><p><strong>values</strong></p>
+<ul>
+<li>any type(immutable and mutable)</li>
+<li>can be <strong>duplicates</strong></li>
+<li>dictionary values can be lists, even other dictionaries</li>
+
+</ul>
+</li>
+<li><p><strong>keys</strong></p>
+<ul>
+<li>must be <strong>unique</strong></li>
+<li><strong>immutable</strong> type: int,float,string,tuple,bool</li>
+<li>careful with <code>float</code> type as akey</li>
+
+</ul>
+</li>
+<li><p><strong>no order</strong> to keys or values!!!</p>
+<pre><code class='language-python' lang='python'>&gt;&gt;&gt; d = {4:{1:0},(1,3):&#39;twelve&#39;, &#39;const&#39;:[3.14, 2.7, 8.44]}
+&gt;&gt;&gt; d
+{4: {1: 0}, (1, 3): &#39;twelve&#39;, &#39;const&#39;: [3.14, 2.7, 8.44]}
+</code></pre>
+</li>
+
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ul>
+<li><h5>LIST VS. DICTIONARIES</h5>
+<p><img src='E:\Python\Introduction to computer science and programmming using Python\Week 3 Structured Types\assets\faHggC01k6.jpg' alt='mark' referrerPolicy='no-referrer' /></p>
+</li>
+
+</ul>
+<p>&nbsp;</p>
+</body>
+</html>
