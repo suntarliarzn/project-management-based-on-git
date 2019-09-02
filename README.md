@@ -1,2 +1,2 @@
 # project management based on git
- my course maaterials of CQUE project management
+ my lecture maaaaaaterials of CQUE project management course
